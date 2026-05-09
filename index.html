@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Formulario de Inscripción</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#0f172a,#1e293b,#2563eb);
+min-height:100vh;
+padding:20px;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.container{
+width:100%;
+max-width:720px;
+background:rgba(255,255,255,0.96);
+backdrop-filter:blur(10px);
+border-radius:24px;
+padding:40px;
+box-shadow:0 10px 40px rgba(0,0,0,0.25);
+}
+
+.header{text-align:center;margin-bottom:35px;}
+
+.badge{
+display:inline-block;
+background:#dbeafe;
+color:#2563eb;
+padding:8px 18px;
+border-radius:999px;
+font-size:13px;
+font-weight:600;
+margin-bottom:16px;
+}
+
+h1{font-size:34px;color:#0f172a;margin-bottom:14px;}
+
+.subtitle{font-size:16px;color:#475569;line-height:1.6;}
+
+.field{margin-bottom:22px;}
+
+label{
+display:block;
+margin-bottom:9px;
+font-weight:600;
+font-size:14px;
+color:#1e293b;
+}
+
+input,select{
+width:100%;
+padding:15px;
+border:1px solid #dbe2ea;
+border-radius:14px;
+font-size:15px;
+outline:none;
+}
+
+.small-note{
+font-size:12px;
+color:#6b7280;
+margin-top:6px;
+}
+
+.grid-2{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:18px;
+}
+
+button{
+width:100%;
+padding:17px;
+border:none;
+border-radius:16px;
+background:linear-gradient(135deg,#2563eb,#1d4ed8);
+color:white;
+font-size:16px;
+font-weight:600;
+cursor:pointer;
+}
+
+/* LOADING */
+#loading{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.55);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:9999;
+}
+
+.loader-box{
+background:white;
+padding:30px 40px;
+border-radius:16px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+.spinner{
+width:40px;
+height:40px;
+border:4px solid #ddd;
+border-top:4px solid #2563eb;
+border-radius:50%;
+margin:0 auto 15px;
+animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+to{transform:rotate(360deg);}
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- LOADING -->
+<div id="loading">
+  <div class="loader-box">
+    <div class="spinner"></div>
+    <p><strong>Enviando inscripción...</strong></p>
+    <p style="font-size:13px;color:#666;">Por favor espere</p>
+  </div>
+</div>
+
+<div class="container">
+
+<div class="header">
+<div class="badge">Inscripciones Abiertas</div>
+
+<h1>Formulario de Inscripción</h1>
+
+<p class="subtitle">
+Al finalizar será redirigido a WhatsApp para recibir información de pago del diplomado.
+</p>
+
+</div>
+
+<form id="formulario">
+
+<div class="field">
+<label>Programa</label>
+<select name="programa" required>
+<option value="">Seleccione un programa</option>
+
+<option>Inteligencia Artificial en la Educación</option>
+<option>Gerencia Educativa</option>
+<option>Neuroeducación</option>
+<option>Docencia Universitaria</option>
+<option>Convivencia Escolar y Resolución de Conflictos</option>
+<option>Dificultades de Aprendizaje en el Aula</option>
+<option>Construcción de Recursos Educativos Digitales</option>
+<option>Estrategias de Comprensión Lectora</option>
+<option>Diseño de Proyectos Pedagógicos de Aula</option>
+<option>Inteligencia Emocional en el Aula</option>
+<option>Programación Neurolingüística Educativa</option>
+<option>Marketing Educativo</option>
+<option>Coaching Educativo</option>
+<option>Edición de Video Educativo</option>
+<option>Aprendizaje Basado en Problemas</option>
+<option>Disciplina Escolar</option>
+<option>Bullying y Ciberbullying</option>
+<option>La Resiliencia en el Contexto Educativo</option>
+<option>Diseño de Aulas Virtuales con Google Classroom</option>
+<option>Google Drive en la Educación</option>
+<option>Inclusión Educativa</option>
+
+</select>
+</div>
+
+<div class="grid-2">
+
+<div class="field">
+<label>Nombres</label>
+<input type="text" name="nombres" required>
+</div>
+
+<div class="field">
+<label>Apellidos</label>
+<input type="text" name="apellidos" required>
+</div>
+
+</div>
+
+<div class="grid-2">
+
+<div class="field">
+<label>Correo</label>
+<input type="email" name="correo" required>
+</div>
+
+<div class="field">
+<label>Confirmar correo</label>
+<input type="email" name="confirmarCorreo" id="confirmarCorreo" required>
+<div class="small-note">No se permite pegar en este campo</div>
+</div>
+
+</div>
+
+<div class="grid-2">
+
+<div class="field">
+<label>Edad</label>
+<input type="number" name="edad" required>
+</div>
+
+<div class="field">
+<label>País</label>
+<select name="pais" id="pais" required>
+<option value="">Seleccione país</option>
+<option>Argentina</option>
+<option>Bolivia</option>
+<option>Brasil</option>
+<option>Canadá</option>
+<option>Chile</option>
+<option>Colombia</option>
+<option>Costa Rica</option>
+<option>Cuba</option>
+<option>Ecuador</option>
+<option>El Salvador</option>
+<option>España</option>
+<option>Estados Unidos</option>
+<option>Guatemala</option>
+<option>Honduras</option>
+<option>México</option>
+<option>Nicaragua</option>
+<option>Panamá</option>
+<option>Paraguay</option>
+<option>Perú</option>
+<option>República Dominicana</option>
+<option>Uruguay</option>
+<option>Venezuela</option>
+</select>
+</div>
+
+</div>
+
+<div class="field">
+<label>Teléfono (WhatsApp)</label>
+<input type="tel" name="telefono" id="telefono" required>
+</div>
+
+<div class="field">
+<label>Institución educativa donde labora</label>
+<input type="text" name="institucion" required>
+<div class="small-note">Si no está laborando escriba: no aplica</div>
+</div>
+
+<div class="field">
+<label>Cargo que desempeña en la institución educativa donde labora</label>
+<input type="text" name="cargo" required>
+<div class="small-note">Si no está laborando escriba: no aplica</div>
+</div>
+
+<div class="field">
+<label>Ciudad donde se encuentra la institución educativa</label>
+<input type="text" name="ciudad" required>
+<div class="small-note">Si no está laborando escriba su ciudad de residencia</div>
+</div>
+
+<div class="field">
+<label>Medio por el que se enteró de nuestra oferta educativa</label>
+<select name="medio" required>
+<option value="">Seleccione</option>
+<option>Facebook</option>
+<option>Instagram</option>
+<option>WhatsApp</option>
+<option>TikTok</option>
+<option>YouTube</option>
+<option>Google</option>
+<option>Correo electrónico</option>
+<option>Referido</option>
+<option>Página web</option>
+<option>Evento educativo</option>
+<option>Otro</option>
+</select>
+</div>
+
+<div class="field">
+<label>Fecha de inicio</label>
+<input type="date" name="fechaInicio" id="fechaInicio" required>
+</div>
+
+<button type="submit">Enviar inscripción</button>
+
+</form>
+
+</div>
+
+<script>
+
+const scriptURL = "https://script.google.com/macros/s/AKfycby-sejij3wB-3i0cgVY1Lh5hDkR59KMU-rRRI1kI22ZA-OsFZgVQMjTNJKei-8LrjuL/exec";
+
+const form = document.getElementById("formulario");
+const loading = document.getElementById("loading");
+const confirmarCorreo = document.getElementById("confirmarCorreo");
+const telefono = document.getElementById("telefono");
+const pais = document.getElementById("pais");
+const fecha = document.getElementById("fechaInicio");
+
+/* PREFIJOS */
+const prefijos = {
+"Argentina":"+54","Bolivia":"+591","Brasil":"+55","Canadá":"+1","Chile":"+56",
+"Colombia":"+57","Costa Rica":"+506","Cuba":"+53","Ecuador":"+593",
+"El Salvador":"+503","España":"+34","Estados Unidos":"+1","Guatemala":"+502",
+"Honduras":"+504","México":"+52","Nicaragua":"+505","Panamá":"+507",
+"Paraguay":"+595","Perú":"+51","República Dominicana":"+1","Uruguay":"+598","Venezuela":"+58"
+};
+
+/* VALIDACIÓN TELÉFONO */
+function validarTelefono(numero){
+const limpio = numero.replace(/\D/g,"");
+return limpio.length >= 7 && limpio.length <= 15;
+}
+
+pais.addEventListener("change", () => {
+telefono.value = prefijos[pais.value] || "";
+});
+
+confirmarCorreo.addEventListener("paste", e=>{
+e.preventDefault();
+alert("No se permite pegar en este campo");
+});
+
+const hoy = new Date();
+fecha.min = new Date(hoy.getFullYear(),hoy.getMonth(),1).toISOString().split("T")[0];
+fecha.max = new Date(hoy.getFullYear(),hoy.getMonth()+1,0).toISOString().split("T")[0];
+
+form.addEventListener("submit", async (e)=>{
+e.preventDefault();
+
+/* VALIDAR TELÉFONO */
+if(!validarTelefono(telefono.value)){
+alert("Ingrese un número de teléfono válido");
+return;
+}
+
+/* VALIDAR CORREOS */
+if(form.correo.value !== form.confirmarCorreo.value){
+alert("Los correos no coinciden");
+return;
+}
+
+loading.style.display = "flex";
+
+const formData = new FormData(form);
+
+try {
+await fetch(scriptURL,{method:"POST",body:formData});
+} catch(err){console.log(err);}
+
+loading.style.display = "none";
+
+alert("Será redirigido a WhatsApp para conocer la información de pago del diplomado.");
+
+const msg = encodeURIComponent(
+`Hola mi nombre es ${form.nombres.value} ${form.apellidos.value}, me inscribí al diplomado ${form.programa.value} y deseo conocer los métodos de pago.`
+);
+
+window.location.href =
+`https://wa.me/573125802943?text=${msg}`;
+
+});
+
+</script>
+
+</body>
+</html>
