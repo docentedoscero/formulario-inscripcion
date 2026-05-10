@@ -157,7 +157,7 @@ to{transform:rotate(360deg);}
 <h1>Formulario de Inscripción</h1>
 
 <p class="subtitle">
-Al finalizar será redirigido(a) a WhatsApp para recibir información de pago del diplomado.
+Al finalizar será redirigido(a) a WhatsApp para resolver cualquier inquietud.
 </p>
 
 </div>
@@ -305,6 +305,8 @@ Al finalizar será redirigido(a) a WhatsApp para recibir información de pago de
 <div class="field">
 <label>Fecha de inicio</label>
 <input type="date" name="fechaInicio" id="fechaInicio" required>
+<div class="small-note">Puede empezar cualquier día del mes en curso</div>
+
 </div>
 
 <button type="submit">Enviar inscripción</button>
@@ -377,10 +379,10 @@ await fetch(scriptURL,{method:"POST",body:formData});
 
 loading.style.display = "none";
 
-alert("Será redirigido a WhatsApp para conocer la información de pago del diplomado.");
+alert("Hemos enviado a su correo la confirmación de la inscripción y la información de pago. Será redirigido(a) a WhatsApp para que pueda resolver cualquier inquietud.");
 
 const msg = encodeURIComponent(
-`Hola mi nombre es ${form.nombres.value} ${form.apellidos.value}, me inscribí al diplomado ${form.programa.value} y deseo conocer los métodos de pago.`
+`Hola, mi nombre es ${form.nombres.value} ${form.apellidos.value}, me inscribí al diplomado ${form.programa.value} y quiero más información.`
 );
 
 window.location.href =
