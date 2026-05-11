@@ -157,7 +157,7 @@ to{transform:rotate(360deg);}
 <h1>Formulario de Inscripción</h1>
 
 <p class="subtitle">
-Al finalizar será redirigido(a) a WhatsApp para resolver cualquier inquietud.
+Complete el formulario para realizar su inscripción.
 </p>
 
 </div>
@@ -306,7 +306,6 @@ Al finalizar será redirigido(a) a WhatsApp para resolver cualquier inquietud.
 <label>Fecha de inicio</label>
 <input type="date" name="fechaInicio" id="fechaInicio" required>
 <div class="small-note">Puede empezar cualquier día del mes en curso</div>
-
 </div>
 
 <button type="submit">Enviar inscripción</button>
@@ -351,10 +350,21 @@ alert("No se permite pegar en este campo");
 });
 
 const hoy = new Date();
-fecha.min = new Date(hoy.getFullYear(),hoy.getMonth(),1).toISOString().split("T")[0];
-fecha.max = new Date(hoy.getFullYear(),hoy.getMonth()+1,0).toISOString().split("T")[0];
+
+fecha.min = new Date(
+hoy.getFullYear(),
+hoy.getMonth(),
+1
+).toISOString().split("T")[0];
+
+fecha.max = new Date(
+hoy.getFullYear(),
+hoy.getMonth()+1,
+0
+).toISOString().split("T")[0];
 
 form.addEventListener("submit", async (e)=>{
+
 e.preventDefault();
 
 /* VALIDAR TELÉFONO */
@@ -374,19 +384,103 @@ loading.style.display = "flex";
 const formData = new FormData(form);
 
 try {
-await fetch(scriptURL,{method:"POST",body:formData});
-} catch(err){console.log(err);}
+
+await fetch(scriptURL,{
+method:"POST",
+body:formData
+});
+
+} catch(err){
+
+console.log(err);
+
+}
 
 loading.style.display = "none";
 
-alert("Hemos enviado a su correo la confirmación de la inscripción y la información de pago. Será redirigido(a) a WhatsApp para que pueda resolver cualquier inquietud.");
+/* MODAL FINAL */
+const modal = document.createElement("div");
 
-const msg = encodeURIComponent(
-`Hola, mi nombre es ${form.nombres.value} ${form.apellidos.value}, me inscribí al diplomado ${form.programa.value} y quiero más información.`
-);
+modal.innerHTML = `
+<div style="
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.65);
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:99999;
+padding:20px;
+">
 
-window.location.href =
-`https://wa.me/573125802943?text=${msg}`;
+  <div style="
+  background:white;
+  width:100%;
+  max-width:480px;
+  border-radius:24px;
+  padding:35px;
+  text-align:center;
+  box-shadow:0 10px 40px rgba(0,0,0,0.3);
+  ">
+
+    <h2 style="
+    color:#0f172a;
+    margin-bottom:18px;
+    font-size:28px;
+    ">
+    Inscripción registrada
+    </h2>
+
+    <p style="
+    color:#475569;
+    line-height:1.7;
+    margin-bottom:30px;
+    font-size:16px;
+    ">
+    Hemos registrado la inscripción.<br>
+    Para continuar con el proceso seleccione una opción:
+    </p>
+
+    <a href="https://www.docente20.com/pagos"
+    style="
+    display:block;
+    width:100%;
+    padding:16px;
+    background:#16a34a;
+    color:white;
+    text-decoration:none;
+    border-radius:14px;
+    font-weight:600;
+    margin-bottom:15px;
+    font-size:16px;
+    ">
+    Realizar pago
+    </a>
+
+    <a href="https://www.docente20.com/confirmaci%C3%B3n-inscripci%C3%B3n"
+    style="
+    display:block;
+    width:100%;
+    padding:16px;
+    background:#dc2626;
+    color:white;
+    text-decoration:none;
+    border-radius:14px;
+    font-weight:600;
+    font-size:16px;
+    ">
+    Salir
+    </a>
+
+  </div>
+
+</div>
+`;
+
+document.body.appendChild(modal);
 
 });
 
