@@ -39,7 +39,10 @@ padding:40px;
 box-shadow:0 10px 40px rgba(0,0,0,0.25);
 }
 
-.header{text-align:center;margin-bottom:35px;}
+.header{
+text-align:center;
+margin-bottom:35px;
+}
 
 .badge{
 display:inline-block;
@@ -52,11 +55,21 @@ font-weight:600;
 margin-bottom:16px;
 }
 
-h1{font-size:34px;color:#0f172a;margin-bottom:14px;}
+h1{
+font-size:34px;
+color:#0f172a;
+margin-bottom:14px;
+}
 
-.subtitle{font-size:16px;color:#475569;line-height:1.6;}
+.subtitle{
+font-size:16px;
+color:#475569;
+line-height:1.6;
+}
 
-.field{margin-bottom:22px;}
+.field{
+margin-bottom:22px;
+}
 
 label{
 display:block;
@@ -66,7 +79,8 @@ font-size:14px;
 color:#1e293b;
 }
 
-input,select{
+input,
+select{
 width:100%;
 padding:15px;
 border:1px solid #dbe2ea;
@@ -132,7 +146,9 @@ animation:spin 1s linear infinite;
 }
 
 @keyframes spin{
-to{transform:rotate(360deg);}
+to{
+transform:rotate(360deg);
+}
 }
 </style>
 
@@ -145,25 +161,41 @@ to{transform:rotate(360deg);}
   <div class="loader-box">
     <div class="spinner"></div>
     <p><strong>Enviando inscripción...</strong></p>
-    <p style="font-size:13px;color:#666;">Por favor espere</p>
+    <p style="font-size:13px;color:#666;">
+      Por favor espere
+    </p>
   </div>
 </div>
 
 <div class="container">
 
 <div class="header">
-<div class="badge">Inscripciones Abiertas</div>
 
-<h1>Formulario de Inscripción</h1>
+<div class="badge">
+Inscripciones Abiertas
+</div>
+
+<h1>
+Formulario de Inscripción
+</h1>
+
+<p class="subtitle">
+Complete el formulario para realizar su inscripción.
+</p>
 
 </div>
 
 <form id="formulario">
 
 <div class="field">
+
 <label>Diplomado</label>
+
 <select name="programa" required>
-<option value="">Seleccione un programa</option>
+
+<option value="">
+Seleccione un programa
+</option>
 
 <option>Inteligencia Artificial en la Educación</option>
 <option>Gerencia Educativa</option>
@@ -188,6 +220,7 @@ to{transform:rotate(360deg);}
 <option>Inclusión Educativa</option>
 
 </select>
+
 </div>
 
 <div class="grid-2">
@@ -212,9 +245,20 @@ to{transform:rotate(360deg);}
 </div>
 
 <div class="field">
+
 <label>Confirmar correo</label>
-<input type="email" name="confirmarCorreo" id="confirmarCorreo" required>
-<div class="small-note">No se permite pegar en este campo</div>
+
+<input
+type="email"
+name="confirmarCorreo"
+id="confirmarCorreo"
+required
+>
+
+<div class="small-note">
+No se permite pegar en este campo
+</div>
+
 </div>
 
 </div>
@@ -227,9 +271,15 @@ to{transform:rotate(360deg);}
 </div>
 
 <div class="field">
+
 <label>País</label>
+
 <select name="pais" id="pais" required>
-<option value="">Seleccione país</option>
+
+<option value="">
+Seleccione país
+</option>
+
 <option>Argentina</option>
 <option>Bolivia</option>
 <option>Brasil</option>
@@ -252,38 +302,80 @@ to{transform:rotate(360deg);}
 <option>República Dominicana</option>
 <option>Uruguay</option>
 <option>Venezuela</option>
+
 </select>
+
 </div>
 
 </div>
 
 <div class="field">
+
 <label>Teléfono (WhatsApp)</label>
-<input type="tel" name="telefono" id="telefono" required>
+
+<input
+type="tel"
+name="telefono"
+id="telefono"
+required
+>
+
 </div>
 
 <div class="field">
-<label>Institución educativa donde labora</label>
+
+<label>
+Institución educativa donde labora
+</label>
+
 <input type="text" name="institucion" required>
-<div class="small-note">Si no está laborando escriba: no aplica</div>
+
+<div class="small-note">
+Si no está laborando escriba: no aplica
+</div>
+
 </div>
 
 <div class="field">
-<label>Cargo que desempeña en la institución educativa donde labora</label>
+
+<label>
+Cargo que desempeña en la institución educativa donde labora
+</label>
+
 <input type="text" name="cargo" required>
-<div class="small-note">Si no está laborando escriba: no aplica</div>
+
+<div class="small-note">
+Si no está laborando escriba: no aplica
+</div>
+
 </div>
 
 <div class="field">
-<label>Ciudad donde se encuentra la institución educativa</label>
+
+<label>
+Ciudad donde se encuentra la institución educativa
+</label>
+
 <input type="text" name="ciudad" required>
-<div class="small-note">Si no está laborando escriba su ciudad de residencia</div>
+
+<div class="small-note">
+Si no está laborando escriba su ciudad de residencia
+</div>
+
 </div>
 
 <div class="field">
-<label>Medio por el que se enteró de nuestra oferta educativa</label>
+
+<label>
+Medio por el que se enteró de nuestra oferta educativa
+</label>
+
 <select name="medio" required>
-<option value="">Seleccione</option>
+
+<option value="">
+Seleccione
+</option>
+
 <option>Facebook</option>
 <option>Instagram</option>
 <option>WhatsApp</option>
@@ -295,16 +387,31 @@ to{transform:rotate(360deg);}
 <option>Página web</option>
 <option>Evento educativo</option>
 <option>Otro</option>
+
 </select>
+
 </div>
 
 <div class="field">
+
 <label>Fecha de inicio</label>
-<input type="date" name="fechaInicio" id="fechaInicio" required>
-<div class="small-note">Puede empezar cualquier día del mes en curso</div>
+
+<input
+type="date"
+name="fechaInicio"
+id="fechaInicio"
+required
+>
+
+<div class="small-note">
+Puede empezar cualquier día del mes en curso
 </div>
 
-<button type="submit">Enviar inscripción</button>
+</div>
+
+<button type="submit">
+Enviar inscripción
+</button>
 
 </form>
 
@@ -312,7 +419,8 @@ to{transform:rotate(360deg);}
 
 <script>
 
-const scriptURL = "https://script.google.com/macros/s/AKfycbyXd5Z2DYV7NqrKe6ipZL297u7W8IIDlJrzlQtPog55HK5sJ6vO_ga0nSo12nxaauQ/exec";
+const scriptURL =
+"https://script.google.com/macros/s/AKfycbyXd5Z2DYV7NqrKe6ipZL297u7W8IIDlJrzlQtPog55HK5sJ6vO_ga0nSo12nxaauQ/exec";
 
 const form = document.getElementById("formulario");
 const loading = document.getElementById("loading");
@@ -323,41 +431,77 @@ const fecha = document.getElementById("fechaInicio");
 
 /* PREFIJOS */
 const prefijos = {
-"Argentina":"+54","Bolivia":"+591","Brasil":"+55","Canadá":"+1","Chile":"+56",
-"Colombia":"+57","Costa Rica":"+506","Cuba":"+53","Ecuador":"+593",
-"El Salvador":"+503","España":"+34","Estados Unidos":"+1","Guatemala":"+502",
-"Honduras":"+504","México":"+52","Nicaragua":"+505","Panamá":"+507",
-"Paraguay":"+595","Perú":"+51","República Dominicana":"+1","Uruguay":"+598","Venezuela":"+58"
+"Argentina":"+54",
+"Bolivia":"+591",
+"Brasil":"+55",
+"Canadá":"+1",
+"Chile":"+56",
+"Colombia":"+57",
+"Costa Rica":"+506",
+"Cuba":"+53",
+"Ecuador":"+593",
+"El Salvador":"+503",
+"España":"+34",
+"Estados Unidos":"+1",
+"Guatemala":"+502",
+"Honduras":"+504",
+"México":"+52",
+"Nicaragua":"+505",
+"Panamá":"+507",
+"Paraguay":"+595",
+"Perú":"+51",
+"República Dominicana":"+1",
+"Uruguay":"+598",
+"Venezuela":"+58"
 };
 
 /* VALIDACIÓN TELÉFONO */
 function validarTelefono(numero){
+
 const limpio = numero.replace(/\D/g,"");
-return limpio.length >= 7 && limpio.length <= 15;
+
+return limpio.length >= 7 &&
+       limpio.length <= 15;
+
 }
 
-pais.addEventListener("change", () => {
+pais.addEventListener("change", ()=>{
+
 telefono.value = prefijos[pais.value] || "";
+
 });
 
 confirmarCorreo.addEventListener("paste", e=>{
+
 e.preventDefault();
+
 alert("No se permite pegar en este campo");
+
 });
 
+/* FECHAS */
 const hoy = new Date();
 
-fecha.min = new Date(
-hoy.getFullYear(),
-hoy.getMonth(),
-1
-).toISOString().split("T")[0];
+/* FORMATO LOCAL YYYY-MM-DD */
+const yyyy = hoy.getFullYear();
+const mm = String(hoy.getMonth() + 1).padStart(2, "0");
+const dd = String(hoy.getDate()).padStart(2, "0");
 
-fecha.max = new Date(
-hoy.getFullYear(),
-hoy.getMonth()+1,
-0
-).toISOString().split("T")[0];
+/* FECHA DE HOY REAL */
+fecha.min = `${yyyy}-${mm}-${dd}`;
+
+/* ÚLTIMO DÍA DEL MES */
+const ultimoDia = new Date(
+  hoy.getFullYear(),
+  hoy.getMonth() + 1,
+  0
+);
+
+const yyyyMax = ultimoDia.getFullYear();
+const mmMax = String(ultimoDia.getMonth() + 1).padStart(2, "0");
+const ddMax = String(ultimoDia.getDate()).padStart(2, "0");
+
+fecha.max = `${yyyyMax}-${mmMax}-${ddMax}`;
 
 form.addEventListener("submit", async (e)=>{
 
@@ -365,14 +509,20 @@ e.preventDefault();
 
 /* VALIDAR TELÉFONO */
 if(!validarTelefono(telefono.value)){
+
 alert("Ingrese un número de teléfono válido");
+
 return;
+
 }
 
 /* VALIDAR CORREOS */
 if(form.correo.value !== form.confirmarCorreo.value){
+
 alert("Los correos no coinciden");
+
 return;
+
 }
 
 loading.style.display = "flex";
